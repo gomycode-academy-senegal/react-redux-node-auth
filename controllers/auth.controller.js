@@ -25,7 +25,9 @@ module.exports.signIn = async (req, res) => {
     const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge });
     res.status(200).json({ user: user._id });
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 module.exports.logout = async (req, res) => {
